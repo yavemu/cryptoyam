@@ -2,16 +2,20 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const logger = require("morgan");
 
 const app = express();
 
+const { dbConnection } = require("./database/index");
+
+dbConnection();
 const routes = require("./routes");
 
+app.use(logger("dev"));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
-//routes
+// routes
 app.use(routes);
 
 app.listen(process.env.PORT, () => {

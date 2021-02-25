@@ -1,10 +1,25 @@
-const express = require("express");
-const router = express.Router();
+const LoginService = require("../../services/v1/auth/login.services");
+const { createUser } = require("./user.controller");
 
-//Services
-const login = require("../../services/v1/auth/login.services");
+const login = async (req, res, next) => {
+  try {
+    const { body } = req;
+    const data = await LoginService(body);
+    next(data);
+  } catch (error) {
+    next(error);
+  }
+};
 
-//route base: api/v1/auth/login
-router.get("/login", login);
+const signin = async (req, res, next) => {
+  try {
+    await createUser(req, res, next);
+  } catch (error) {
+    next(error);
+  }
+};
 
-module.exports = router;
+module.exports = {
+  login,
+  signin,
+};
