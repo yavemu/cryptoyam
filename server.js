@@ -3,6 +3,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const logger = require("morgan");
+const swaggerUi = require("swagger-ui-express");
+const documentation = require("./documentation");
 
 const app = express();
 
@@ -16,6 +18,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // routes
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(documentation));
 app.use(routes);
 
 app.listen(process.env.PORT, () => {
