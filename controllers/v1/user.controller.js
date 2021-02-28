@@ -7,15 +7,15 @@ const createUser = async (req, res, next) => {
     const { exist, error } = await existUsernameService(body.username);
 
     if (exist) {
-      next(error);
-    } else {
-      const user = await createUserService(body);
-      next({
-        status: 200,
-        message: "user created success",
-        user,
-      });
+      return next(error);
     }
+
+    const user = await createUserService(body);
+    next({
+      status: 200,
+      message: "user created success",
+      user,
+    });
   } catch (error) {
     next(error);
   }

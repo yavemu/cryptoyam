@@ -8,7 +8,7 @@ const createUserSchema = (req, res, next) => {
     lastname: Joi.string().required(),
     username: Joi.string().required(),
     password: Joi.string().min(8).required(),
-    currency: Joi.string().uppercase().valid(...currencyOptions).required(),
+    currency: Joi.string().lowercase().valid(...currencyOptions).required(),
   });
   validateRequest(req, res, next, schema);
 };

@@ -15,7 +15,7 @@ const LoginService = async (body) => {
 
     if (usernameAndPasswordCorrect) {
       // eslint-disable-next-line no-underscore-dangle
-      const token = jwt.sign({ id: userExist[0]._id }, secretKey, { expiresIn: "1h" });
+      const token = jwt.sign({ id: userExist[0]._id }, secretKey, { expiresIn: "10h" });
       response = ({
         status: 200,
         message: "Login success",

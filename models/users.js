@@ -27,8 +27,10 @@ const UserSchema = Schema({
     type: String,
     required: true,
     enum: currencyOptions,
+    lowercase: true,
   },
-});
+  currencies: [{ type: Schema.Types.ObjectId, ref: "Coins" }],
+}, { toObject: { versionKey: false } });
 
 UserSchema.plugin(uniqueValidator);
 
@@ -45,6 +47,6 @@ UserSchema.pre("save", async function save(next) {
 
 UserSchema.methods.validatePassword = async (data) => bcrypt.compare(data, this.password);
 
-const User = model("Usuario", UserSchema);
+const User = model("User", UserSchema);
 
 module.exports = { User };

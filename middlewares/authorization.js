@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
 
+const getTokenUserId = (token) => jwt.decode(token, process.env.JWT_SECRETKEY);
+
 const Authorization = async (req, res, next) => {
   try {
     let token = req.headers.authorization;
@@ -14,6 +16,8 @@ const Authorization = async (req, res, next) => {
           message: "Invalid token",
         });
       } else {
+        const tokenData = getTokenUserId(token);
+        req.userId = tokenData.id;
         next();
       }
     });
