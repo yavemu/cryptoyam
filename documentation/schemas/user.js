@@ -1,6 +1,6 @@
 const { currencyOptions } = require("../../utils/index");
 
-const createUser = {
+const user = {
   type: "object",
   properties: {
     name: {
@@ -25,9 +25,15 @@ const createUser = {
       required: true,
       enum: currencyOptions,
     },
+    currencies: {
+      type: "array",
+      items: {
+        $ref: "#/components/schemas/coin",
+      },
+    },
   },
 };
 
 module.exports = {
-  createUser,
+  user,
 };

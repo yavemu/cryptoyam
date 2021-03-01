@@ -8,6 +8,7 @@ module.exports = {
             status: 200,
             message: "user created success",
             user: {
+              currencies: [],
               _id: "60386da7d5d75629c9ca12f3",
               name: "userName",
               lastname: "userLastName",

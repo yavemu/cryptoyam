@@ -16,7 +16,8 @@ const swaggerConfig = {
   ],
   security: [],
   tags: [
-    { name: "Auth", description: "Authhentications endpoints" },
+    { name: "Auth", description: "Authentications endpoints" },
+    { name: "Coin", description: "Coin endpoints" },
     { name: "User", description: "User endpoints" },
   ],
   paths,

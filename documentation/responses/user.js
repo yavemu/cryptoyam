@@ -8,6 +8,7 @@ module.exports = {
             status: 200,
             message: "user created success",
             user: {
+              currencies: [],
               _id: "603871de43a0143080daa577",
               name: "name",
               lastname: "lastname",
@@ -51,6 +52,7 @@ module.exports = {
             message: "user list",
             users: [
               {
+                currencies: [],
                 _id: "603688a45eb249781c5752e3",
                 name: "name1",
                 lastname: "lastname1",
@@ -59,6 +61,7 @@ module.exports = {
                 currency: "EUR",
               },
               {
+                currencies: [],
                 _id: "6036894fdbbe7079a279f70a",
                 name: "name2",
                 lastname: "lastname2",

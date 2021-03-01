@@ -39,6 +39,12 @@ const signin = {
       required: true,
       enum: currencyOptions,
     },
+    currencies: {
+      type: "array",
+      items: {
+        $ref: "#/components/schemas/coin",
+      },
+    },
   },
 };
 

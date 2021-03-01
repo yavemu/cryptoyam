@@ -10,7 +10,7 @@ const user = {
         content: {
           "application/json": {
             schema: {
-              $ref: "#/components/schemas/createUser",
+              $ref: "#/components/schemas/user",
             },
           },
         },
