@@ -13,7 +13,9 @@ const { dbConnection } = require("./database/index");
 dbConnection();
 const routes = require("./routes");
 
-app.use(logger("dev"));
+if (process.env.NODE_ENV !== "test") {
+  app.use(logger("dev"));
+}
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -24,3 +26,5 @@ app.use(routes);
 app.listen(process.env.PORT, () => {
   console.info("Server running on the port: ", process.env.PORT);
 });
+
+module.exports = app;

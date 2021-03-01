@@ -56,7 +56,8 @@ const topCoin = async (req, res, next) => {
     const { userId } = req;
 
     const sort = req.query.sort === "asc" ? "current_price" : "-current_price";
-    const limit = req.query.limit > 0 && req.query.limit <= 25 ? req.query.limit : 25;
+    // eslint-disable-next-line radix
+    const limit = req.query.limit > 0 && req.query.limit <= 25 ? parseInt(req.query.limit) : 25;
     const currenciesOptions = { sort, limit };
 
     const userData = await getUserByIdService(userId, {}, currenciesOptions, true);
