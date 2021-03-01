@@ -25,7 +25,7 @@
 
   For development, you will only need Node.js and a node global package (devDependencies).
 
-  You need have a MONGODB_STRING_CONNECTION to development too.
+  You need to have a MONGODB_STRING_CONNECTION to development too.
 
   The project port default is 8080
 
@@ -54,7 +54,7 @@
 - - - -
 ## Documentation
 
-  After run the project you can open de documentation running on your browser `http://localhost:8080/docs/`
+  After run the project you can open the documentation running on your browser `http://localhost:8080/docs/`
 
 - - - -
 ## Enpoints list
@@ -114,7 +114,7 @@ We suposed that you have running the project in local environment and the server
 #### ADD A COIN
   - GET: `localhost:8080/api/v1/coin/:coinId/add`
   - Require Authorization using "Bearer token" type
-  - In a url you need replace :coinId for a real value, example:
+  - In a url you need to replace :coinId for a real value, example:
   ```yaml
     localhost:8080/api/v1/coin/ethereum/add
     localhost:8080/api/v1/coin/bitcoin/add
