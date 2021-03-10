@@ -3,6 +3,7 @@ const chai = require("chai");
 const chaiHttp = require("chai-http");
 const { expect } = require("chai");
 const app = require("../server");
+const { topCoinLimit } = require("../utils");
 
 chai.use(chaiHttp);
 
@@ -115,7 +116,7 @@ describe("################ Coin endpoint test ################", () => {
           expect(res).to.have.status(200);
           expect(res.body.message).to.equals("Top Coin list");
           expect(res.body.sort).to.equals("-current_price");
-          expect(res.body.limit).to.equals(25);
+          expect(res.body.limit).to.equals(topCoinLimit);
           expect(res.body).to.have.property("topCoins");
           done();
         });

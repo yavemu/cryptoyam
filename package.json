@@ -7,6 +7,7 @@
     "lint": "eslint --fix --ext .js .",
     "lint:fix": "npm run lint -- --fix",
     "start:dev": "nodemon server.js",
+    "start": "node server.js",
     "test": "NODE_ENV=test mocha test/*.js --timeout 30000"
   },
   "author": "YAMid Vélez Muñoz [yavemu@gmail.com]",

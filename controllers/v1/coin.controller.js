@@ -3,7 +3,7 @@ const {
   getAllCoinService, addCoinService, getOneCoinService, getTopCoinService,
 } = require("../../services/v1/coin/index");
 const { getUserByIdService, canAddCoinService } = require("../../services/v1/user/index");
-const { currencyOptions } = require("../../utils/index");
+const { currencyOptions, topCoinLimit } = require("../../utils/index");
 
 const getAllCoin = async (req, res, next) => {
   try {
@@ -57,7 +57,7 @@ const topCoin = async (req, res, next) => {
 
     const sort = req.query.sort === "asc" ? "current_price" : "-current_price";
     // eslint-disable-next-line radix
-    const limit = req.query.limit > 0 && req.query.limit <= 25 ? parseInt(req.query.limit) : 25;
+    const limit = req.query.limit > 0 && req.query.limit <= topCoinLimit ? parseInt(req.query.limit) : topCoinLimit;
     const currenciesOptions = { sort, limit };
 
     const userData = await getUserByIdService(userId, {}, currenciesOptions, true);

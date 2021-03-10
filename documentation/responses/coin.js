@@ -1,3 +1,5 @@
+const { topCoinLimit } = require("../../utils");
+
 module.exports = {
   coinList200: {
     description: "Get coin list successful response",
@@ -79,7 +81,7 @@ module.exports = {
             status: 200,
             message: "Top Coin list",
             sort: "current_price",
-            limit: 25,
+            limit: topCoinLimit,
             topCoins: [
               {
                 _id: "603d3e5cc3627766112c8bed",
